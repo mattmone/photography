@@ -367,7 +367,7 @@ export class ImageCreator extends HTMLElement {
     this.dragonfly.addEventListener("load", (() => 
       this.drawWatermark(this.context))
     , false);
-		this.dragonfly.src = "images/dragonfly.svg";
+		this.dragonfly.src = "/_static/photography/images/dragonfly.svg";
 		this.drawSize(" ", this.context);
 		this.drawType(" ", this.context);
 		setTimeout(_ => {
