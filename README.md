@@ -1,2 +1,0 @@
-# photography
-Begin app
