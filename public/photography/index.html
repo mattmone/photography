@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="manifest" href="manifest.json">
+    <title>PhotoTaker</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: 'Steelfish';
+        src: url('fonts/steelfish.ttf');
+        font-display: block;
+      }
+      html,body {
+        height:100%;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        margin-top:0;
+        margin-bottom:0;
+      }
+      img-creator {
+          position:fixed;
+          top:0;
+          left:0;
+          bottom:0;
+          right:0;
+      }
+    </style>
+    <script type='module' src='elements/img-creator.js?v=9'></script>
+  </head>
+  <body>
+    <img-creator></img-creator>
+    
+    <script>
+      // if ('serviceWorker' in navigator) {
+      //   navigator.serviceWorker.register('service-worker.js');
+      // }
+    </script>
+  </body>
+</html>

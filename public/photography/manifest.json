@@ -1,0 +1,14 @@
+{
+  "name": "PhotoTaker",
+  "short_name": "PhotoTaker",
+  "start_url": "https://mattmone.duckdns.org/llr/photography/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "description": "An photo taking app for Jasmine's Lularoe",
+  "icons": [{
+    "src": "images/shutter-icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
