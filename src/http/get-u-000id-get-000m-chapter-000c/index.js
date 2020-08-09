@@ -8,8 +8,8 @@ exports.handler = async function http (req) {
   const mangaRecord = (await data.get({table: 'manga', key: manga}));
   if(!mangaRecord) return respondWith(JSON.stringify({failure: `no manga found with name ${manga}`}))
 
-  const chapter = mangaRecord.chapters[chapter];
-  if(!chapter) return respondWith(JSON.stringify({failure: ``}))
+  const selectedChapter = mangaRecord.chapters[chapter];
+  if(!selectedChapters) return respondWith(JSON.stringify({failure: ``}))
   if(!userSettings[manga]) userSettings[manga] = {};
   userSettings[manga].chapter = chapter;
   
