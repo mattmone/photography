@@ -1,0 +1,18 @@
+{
+  "name": "get-user-000userid-get-000manga-from-000site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@architect/functions": "latest",
+    "@begin/data": "latest",
+    "nanoid": "^2.1.11",
+    "gin-downloader": "^2.0.0-beta.6"
+  }
+}

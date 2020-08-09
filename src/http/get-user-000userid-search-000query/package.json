@@ -1,0 +1,19 @@
+{
+  "name": "get-user-000userid-search-000query",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "gin-downloader": "^1.1.0",
+    "@architect/functions": "latest",
+    "@begin/data": "latest",
+    "nanoid": "^2.1.11"
+  }
+}

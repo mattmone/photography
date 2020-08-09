@@ -2,12 +2,14 @@
 begin-app
 
 @http
-get  /todos
+get  /user/:userid/search/:query
+get  /user/:userid/get/:manga/from/:site
+get  /user/:userid
 post /todos
 post /todos/delete
 
 @tables
-data
-  scopeID *String
-  dataID **String
-  ttl TTL
+users
+  userid *String
+manga
+  name *String
