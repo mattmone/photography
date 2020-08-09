@@ -2,9 +2,9 @@
 begin-app
 
 @http
-get  /user/:userid/search/:query
-get  /user/:userid/get/:manga/from/:site
-get  /user/:userid
+get  /user/:id/search/:query
+get  /user/:id/get/:manga/from/:site
+get  /user/:id
 post /todos
 post /todos/delete
 
