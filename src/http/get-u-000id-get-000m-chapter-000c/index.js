@@ -9,7 +9,7 @@ exports.handler = async function http (req) {
   if(!mangaRecord) return respondWith(JSON.stringify({failure: `no manga found with name ${manga}`}))
 
   const selectedChapter = mangaRecord.chapters[chapter];
-  if(!selectedChapters) return respondWith(JSON.stringify({failure: ``}))
+  if(!selectedChapter) return respondWith(JSON.stringify({failure: ``}))
   if(!userSettings[manga]) userSettings[manga] = {};
   userSettings[manga].chapter = chapter;
   
