@@ -13,13 +13,12 @@ exports.handler = async function http (req) {
   } else if((mangaRecord||{}).from !== undefined ) {
     const oldSite = mangaRecord.from;
     mangaRecord.from = site;
-    await data.set({table: "manga", name: JSON.stringify(mangaDB)})
+    await data.set({table: "manga", key: manga, data: JSON.stringify(mangaRecord)})
     return respondWith(`Switched ${manga} from ${oldSite} to ${site}.`)
   }
   userSettings[manga] = {};
-  mangaRecord = mangaRecord || {
-    from: site
-  };
+  mangaRecord.from = site;
+  
   const chapters = await gin[site].chapters(manga);
   const chapterNumbers = chapters.map(chapter => Number(chapter.chap_number)).filter(chapterNumber => chapterNumber > (mangaRecord.lastChapter || -1));
   const neededChapters = chapterNumbers.map(chapterNumber => gin[site].images(manga, chapterNumber));
@@ -33,9 +32,9 @@ exports.handler = async function http (req) {
     mangaRecord.lastChapter = chapterNumber;
     break;
   }
-  await data.set({table: "manga", key: manga, data: JSON.stringify(mangaRecord)})
-  await data.set({table: "users", key: userid, settings: JSON.stringify(userSettings)})
-  return respondWith("done");
+  const mangaError = await data.set({table: "manga", key: manga, data: JSON.stringify(mangaRecord)}).catch(err => err)
+  const userError = await data.set({table: "users", key: userid, settings: JSON.stringify(userSettings)}).catch(err => err)
+  return respondWith(`done ${mangaError ? "manga error" : "manga success"} ${userError ? "user error" : "user success"}`);
 }
 
 function respondWith(msg) {
