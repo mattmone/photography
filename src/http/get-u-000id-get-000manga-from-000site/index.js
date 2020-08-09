@@ -4,6 +4,7 @@ const data = require('@begin/data')
 
 
 exports.handler = async function http (req) {
+  try {
   const { id: userid, manga, site } = req.pathParameters;
   const userSettings = (await data.get({table: 'users', key: userid})) || {};
   const mangaRecord = (await data.get({table: 'manga', key: manga})) || {};
@@ -35,6 +36,9 @@ exports.handler = async function http (req) {
   const mangaError = await data.set({table: "manga", key: manga, data: JSON.stringify(mangaRecord)}).catch(err => err)
   const userError = await data.set({table: "users", key: userid, settings: JSON.stringify(userSettings)}).catch(err => err)
   return respondWith(`done ${mangaError ? "manga error" : "manga success"} ${userError ? "user error" : "user success"}`);
+} catch(error) {
+  respondWith(JSON.stringify(error));
+}
 }
 
 function respondWith(msg) {
