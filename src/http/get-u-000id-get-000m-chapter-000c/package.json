@@ -1,0 +1,17 @@
+{
+  "name": "get-user-000userid-get-000m-chapter-000c",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@architect/functions": "latest",
+    "@begin/data": "latest",
+    "nanoid": "^2.1.11"
+  }
+}
