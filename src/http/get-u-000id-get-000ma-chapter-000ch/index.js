@@ -3,7 +3,7 @@ const data = require('@begin/data')
 
 
 exports.handler = async function http (req) {
-  const { id: userid, m: manga, c: chapter } = req.pathParameters;
+  const { id: userid, ma: manga, ch: chapter } = req.pathParameters;
   const userSettings = (await data.get({table: 'users', key: userid})) || {};
   const mangaRecord = (await data.get({table: 'manga', key: manga}));
   if(!mangaRecord) return respondWith(JSON.stringify({failure: `no manga found with name ${manga}`}));
