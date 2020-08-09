@@ -4,7 +4,7 @@ const ejs = require("ejs");
 const template = require("./search")
 
 exports.handler = async function http (req) {
-  const { query, userid } = req.pathParameters;
+  const { query, id: userid } = req.pathParameters;
   const searches = ["mangapanda","mangahere","mangafox","kissmanga","batoto"].map(site => gin[site].filter({name: query}))
   const results = await Promise.all(searches);
   const manga = {
@@ -28,6 +28,6 @@ async function retrieveURLify(manga) {
   manga.details = await gin[this.site].infoChapters(manga.name);
   manga.details.latestChapter = manga.details.chapters[manga.details.chapters.length-1];
   delete manga.details.chapters;
-  manga.getUrl = `/user/${this.userid}/get/${manga.name}/from/${this.site}`;
+  manga.getUrl = `/u/${this.userid}/get/${manga.name}/from/${this.site}`;
   return manga
 }

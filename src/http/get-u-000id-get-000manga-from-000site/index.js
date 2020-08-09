@@ -4,7 +4,7 @@ const data = require('@begin/data')
 
 
 exports.handler = async function http (req) {
-  const { userid, manga, site } = req.pathParameters;
+  const { id: userid, manga, site } = req.pathParameters;
   const userSettings = (await data.get({table: 'users', key: userid})) || {};
   const mangaRecord = (await data.get({table: 'manga', key: manga})) || {};
   if((mangaRecord||{}).from === site) {
